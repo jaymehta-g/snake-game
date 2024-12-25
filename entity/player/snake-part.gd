@@ -1,5 +1,5 @@
 class_name SnakePart
-extends Node2D
+extends CharacterBody2D
 
 @export var steps_behind := 0
 

@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @export var snake_scn: PackedScene
@@ -9,7 +10,7 @@ const SCREEN_WID := 1024.0
 
 var history: Array[Vector2]
 var history_idx := 0
-const HISTORY_LEN := 5000
+const HISTORY_LEN := 1000
 
 var angle := 0.0 # radians
 
@@ -24,8 +25,10 @@ func _ready() -> void:
 	history_timer.timeout.connect(_record_position)
 	history_timer.wait_time = history_delay
 	
-	for i in range(30):
-		var n := preload("res://entity/player/snake-part.tscn").instantiate()
+	SignalBus.fruit.connect(_on_fruit)
+	
+	for i in range(3):
+		var n := snake_scn.instantiate()
 		n.steps_behind = i + 1
 		snake.add_child(n)
 
@@ -40,6 +43,7 @@ func _process(delta: float) -> void:
 	for n: SnakePart in snake.get_children():
 		var posa = get_history(n.steps_behind - 1)
 		var posb = get_history(n.steps_behind)
+		# this weird solution to lerp across edges works somehow?
 		var posdiff = posa - posb
 		if posdiff.x > 500:
 			posb.x += SCREEN_WID
@@ -57,5 +61,14 @@ func get_history(steps_ago: int) -> Vector2:
 
 func _record_position() -> void:
 	history_idx += 1
-	history[history_idx] = position
 	history_idx = posmod(history_idx, HISTORY_LEN)
+	history[history_idx] = position
+
+func _on_fruit() -> void:
+	for i in range(3):
+		for n: SnakePart in snake.get_children():
+			n.steps_behind += 1
+		var n := snake_scn.instantiate()
+		n.steps_behind = 1
+		snake.add_child(n)
+		await get_tree().create_timer(0.3).timeout

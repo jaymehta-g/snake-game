@@ -8,6 +8,7 @@
 radius = 47.676
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 3
 script = ExtResource("1_oranl")
 snake_scn = ExtResource("2_pn16k")
 
