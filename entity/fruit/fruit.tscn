@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://dabo7odj17kpu"]
+
+[ext_resource type="PackedScene" uid="uid://05y8mbst18k3" path="res://entity/fruit/individual.tscn" id="2_24j7r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_promv"]
+radius = 86.3308
+
+[node name="Fruit" type="Area2D"]
+modulate = Color(1, 0, 0.894118, 1)
+
+[node name="CollisionShape2D" parent="." instance=ExtResource("2_24j7r")]
+position = Vector2(-1024, -1024)
+shape = SubResource("CircleShape2D_promv")
+
+[node name="@CollisionShape2D@2" parent="." instance=ExtResource("2_24j7r")]
+position = Vector2(-1024, 0)
+shape = SubResource("CircleShape2D_promv")
+
+[node name="@CollisionShape2D@3" parent="." instance=ExtResource("2_24j7r")]
+position = Vector2(-1024, 1024)
+shape = SubResource("CircleShape2D_promv")
+
+[node name="@CollisionShape2D@4" parent="." instance=ExtResource("2_24j7r")]
+position = Vector2(0, -1024)
+shape = SubResource("CircleShape2D_promv")
+
+[node name="@CollisionShape2D@5" parent="." instance=ExtResource("2_24j7r")]
+shape = SubResource("CircleShape2D_promv")
+
+[node name="@CollisionShape2D@6" parent="." instance=ExtResource("2_24j7r")]
+position = Vector2(0, 1024)
+shape = SubResource("CircleShape2D_promv")
+
+[node name="@CollisionShape2D@7" parent="." instance=ExtResource("2_24j7r")]
+position = Vector2(1024, -1024)
+shape = SubResource("CircleShape2D_promv")
+
+[node name="@CollisionShape2D@8" parent="." instance=ExtResource("2_24j7r")]
+position = Vector2(1024, 0)
+shape = SubResource("CircleShape2D_promv")
+
+[node name="@CollisionShape2D@9" parent="." instance=ExtResource("2_24j7r")]
+position = Vector2(1024, 1024)
+shape = SubResource("CircleShape2D_promv")

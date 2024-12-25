@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu3qhc622ljm2"]
+
+[ext_resource type="Script" path="res://entity/player/player.gd" id="1_oranl"]
+[ext_resource type="PackedScene" uid="uid://ctsg1it2ik60a" path="res://entity/player/snake-part.tscn" id="2_pn16k"]
+[ext_resource type="Texture2D" uid="uid://bk2w8pagry5wv" path="res://icon.svg" id="3_a7lhs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_re1h1"]
+radius = 47.676
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_oranl")
+snake_scn = ExtResource("2_pn16k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_re1h1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("3_a7lhs")
+
+[node name="Snake" type="Node2D" parent="."]
+
+[node name="HistoryTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false

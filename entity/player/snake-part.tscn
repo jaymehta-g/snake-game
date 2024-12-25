@@ -1,31 +1,33 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://ctsg1it2ik60a"]
 
-[ext_resource type="PackedScene" path="res://entity/player/ball.tscn" id="1_ag3t2"]
+[ext_resource type="PackedScene" uid="uid://bmhy6m2t4707j" path="res://entity/player/ball.tscn" id="1_ag3t2"]
+[ext_resource type="Script" path="res://entity/player/snake-part.gd" id="1_ht8g7"]
 
 [node name="SnakePart" type="Node2D"]
+script = ExtResource("1_ht8g7")
 
-[node name="Ball" type="CharacterBody2D" parent="." instance=ExtResource("1_ag3t2")]
+[node name="Ball" parent="." instance=ExtResource("1_ag3t2")]
 position = Vector2(-1024, -1024)
 
-[node name="@CharacterBody2D@2" type="CharacterBody2D" parent="." instance=ExtResource("1_ag3t2")]
+[node name="@CharacterBody2D@2" parent="." instance=ExtResource("1_ag3t2")]
 position = Vector2(-1024, 0)
 
-[node name="@CharacterBody2D@3" type="CharacterBody2D" parent="." instance=ExtResource("1_ag3t2")]
+[node name="@CharacterBody2D@3" parent="." instance=ExtResource("1_ag3t2")]
 position = Vector2(-1024, 1024)
 
-[node name="@CharacterBody2D@4" type="CharacterBody2D" parent="." instance=ExtResource("1_ag3t2")]
+[node name="@CharacterBody2D@4" parent="." instance=ExtResource("1_ag3t2")]
 position = Vector2(0, -1024)
 
-[node name="@CharacterBody2D@5" type="CharacterBody2D" parent="." instance=ExtResource("1_ag3t2")]
+[node name="@CharacterBody2D@5" parent="." instance=ExtResource("1_ag3t2")]
 
-[node name="@CharacterBody2D@6" type="CharacterBody2D" parent="." instance=ExtResource("1_ag3t2")]
+[node name="@CharacterBody2D@6" parent="." instance=ExtResource("1_ag3t2")]
 position = Vector2(0, 1024)
 
-[node name="@CharacterBody2D@7" type="CharacterBody2D" parent="." instance=ExtResource("1_ag3t2")]
+[node name="@CharacterBody2D@7" parent="." instance=ExtResource("1_ag3t2")]
 position = Vector2(1024, -1024)
 
-[node name="@CharacterBody2D@8" type="CharacterBody2D" parent="." instance=ExtResource("1_ag3t2")]
+[node name="@CharacterBody2D@8" parent="." instance=ExtResource("1_ag3t2")]
 position = Vector2(1024, 0)
 
-[node name="@CharacterBody2D@9" type="CharacterBody2D" parent="." instance=ExtResource("1_ag3t2")]
+[node name="@CharacterBody2D@9" parent="." instance=ExtResource("1_ag3t2")]
 position = Vector2(1024, 1024)
