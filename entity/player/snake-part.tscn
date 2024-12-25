@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bmhy6m2t4707j" path="res://entity/player/ball.tscn" id="1_ag3t2"]
 [ext_resource type="Script" path="res://entity/player/snake-part.gd" id="1_ht8g7"]
 
-[node name="SnakePart" type="Node2D"]
+[node name="SnakePart" type="CharacterBody2D"]
 script = ExtResource("1_ht8g7")
 
 [node name="Ball" parent="." instance=ExtResource("1_ag3t2")]

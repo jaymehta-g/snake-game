@@ -14,10 +14,13 @@ const HISTORY_LEN := 1000
 
 var angle := 0.0 # radians
 
+var score := 0
+
 @onready var history_timer: Timer = $HistoryTimer
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var snake: Node2D = $Snake
 @onready var camera: Camera2D = $Camera2D
+@onready var hurtbox: Area2D = $Hurtbox
 
 func _ready() -> void:
 	for i in range(HISTORY_LEN):
@@ -26,6 +29,8 @@ func _ready() -> void:
 	history_timer.wait_time = history_delay
 	
 	SignalBus.fruit.connect(_on_fruit)
+	
+	hurtbox.body_entered.connect(_on_hurtbox)
 	
 	for i in range(3):
 		var n := snake_scn.instantiate()
@@ -65,10 +70,20 @@ func _record_position() -> void:
 	history[history_idx] = position
 
 func _on_fruit() -> void:
+	score += 1
+	print_debug("score: %d" % score)
 	for i in range(3):
 		for n: SnakePart in snake.get_children():
 			n.steps_behind += 1
 		var n := snake_scn.instantiate()
 		n.steps_behind = 1
-		snake.add_child(n)
+		snake.add_child.call_deferred(n)
 		await get_tree().create_timer(0.3).timeout
+
+func _on_hurtbox(n: Node2D) -> void:
+	if not n is SnakePart:
+		return
+	var part: SnakePart = n
+	if part.steps_behind < 5:
+		return
+	print_debug("fail")

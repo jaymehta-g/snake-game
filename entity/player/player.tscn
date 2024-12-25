@@ -1,23 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://bu3qhc622ljm2"]
+[gd_scene load_steps=6 format=3 uid="uid://bu3qhc622ljm2"]
 
 [ext_resource type="Script" path="res://entity/player/player.gd" id="1_oranl"]
 [ext_resource type="PackedScene" uid="uid://ctsg1it2ik60a" path="res://entity/player/snake-part.tscn" id="2_pn16k"]
 [ext_resource type="Texture2D" uid="uid://bk2w8pagry5wv" path="res://icon.svg" id="3_a7lhs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_re1h1"]
-radius = 47.676
+radius = 64.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b1wyy"]
+radius = 45.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 3
 script = ExtResource("1_oranl")
 snake_scn = ExtResource("2_pn16k")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_re1h1")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0, 0, 1)
 texture = ExtResource("3_a7lhs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_re1h1")
+debug_color = Color(0, 0.595, 0.7, 0.176471)
 
 [node name="Snake" type="Node2D" parent="."]
 
@@ -26,3 +30,10 @@ autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_b1wyy")
+debug_color = Color(0.7, 0, 0.0246448, 0.42)

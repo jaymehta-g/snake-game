@@ -5,11 +5,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_6u30c"]
 radius = 48.0937
 
-[node name="Ball" type="CharacterBody2D"]
+[node name="Ball" type="CollisionShape2D"]
+shape = SubResource("CircleShape2D_6u30c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.671875, 0.546875)
 texture = ExtResource("1_p2wcq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_6u30c")
