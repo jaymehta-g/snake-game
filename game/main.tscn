@@ -1,7 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccgmydulx568v"]
+[gd_scene load_steps=4 format=3 uid="uid://ccgmydulx568v"]
 
+[ext_resource type="Script" path="res://game/main.gd" id="1_4mp08"]
 [ext_resource type="PackedScene" uid="uid://c1lbq61ftc82h" path="res://game/game.tscn" id="1_h8l4k"]
+[ext_resource type="PackedScene" uid="uid://du5f5pdyshyug" path="res://menu/fail.tscn" id="2_6kd7x"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_4mp08")
+fail_scn = ExtResource("2_6kd7x")
+game_scn = ExtResource("1_h8l4k")
 
 [node name="Game" parent="." instance=ExtResource("1_h8l4k")]

@@ -86,4 +86,5 @@ func _on_hurtbox(n: Node2D) -> void:
 	var part: SnakePart = n
 	if part.steps_behind < 5:
 		return
+	SignalBus.gameover.emit()
 	print_debug("fail")

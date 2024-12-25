@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://du5f5pdyshyug"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c2aqo"]
+font_size = 50
+
+[node name="Fail" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+offset_left = 295.0
+offset_top = 256.0
+offset_right = 569.0
+offset_bottom = 325.0
+text = "You lose lol"
+label_settings = SubResource("LabelSettings_c2aqo")
+
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+offset_left = 509.0
+offset_top = 593.0
+offset_right = 653.0
+offset_bottom = 670.0
+theme_override_font_sizes/font_size = 50
+text = "Again"
